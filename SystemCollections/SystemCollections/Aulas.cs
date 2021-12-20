@@ -45,7 +45,7 @@ namespace SystemCollections
     }
     class AulaP3
     {
-        static void Imprimir(string[] args)
+        static void AulaIntrocao()
         {
             var aulaIntro = new Aula("Introdução às coleções", 29);
             var aulaModelando = new Aula("Modelando a classe aula", 18);

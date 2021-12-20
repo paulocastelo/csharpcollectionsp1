@@ -11,6 +11,8 @@ namespace Aula24ListaSomentLeitura
     {
         static void Main(string[] args)
         {
+            
+            Console.WriteLine("Início do programa:");
             Curso csharpcollection = new Curso("C# Collections P1", "Gustavo Instrutor");
             csharpcollection.Adiciona(new Aula("Arrays", 45));
             Imprimir(csharpcollection.Aulas);
@@ -21,10 +23,23 @@ namespace Aula24ListaSomentLeitura
             csharpcollection.Adiciona(new Aula("Modelando Coleções", 19));
 
             //Imprimir
+            Console.WriteLine("Imprimindo cSharpCollection");
             Imprimir(csharpcollection.Aulas);
 
-            //Utilizar o Sort na lista
-            csharpcollection.Aulas.OrderBy();
+            List<Aula> aulasCopiadas = new List<Aula>(csharpcollection.Aulas);
+
+            //Ordenar a lista copiada
+            Console.WriteLine("Imprimindo aulas copiadas");
+            aulasCopiadas.Sort();
+
+            //Imprimindo lista copiada
+            Imprimir(aulasCopiadas);
+
+            Console.Write("Tempo total de aulas:");
+            Console.WriteLine(csharpcollection.TempoTotal);
+
+
+            Console.WriteLine(csharpcollection);
 
             Console.ReadLine();
         }

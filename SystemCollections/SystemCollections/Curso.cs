@@ -27,7 +27,7 @@ namespace SystemCollections
 
         public IList<Aula> Aulas
         {
-            get { return new ReadOnlyCollection<Aula> (aulas); }
+            get { return new ReadOnlyCollection<Aula>(aulas); }
             //set { aulas = value; }
         }
 
@@ -37,12 +37,40 @@ namespace SystemCollections
             set { nome = value; }
         }
 
+        public int TempoTotal
+        {
+            get
+            {
+                //int total = new int();
+                //foreach (var aula in aulas)
+                //{
+                //    total += aula.Tempo;
+                //}
+                //return total;
+
+                //LINQ - Language Integrated Query
+                return aulas.Sum(aula => aula.Tempo);
+            }
+        }
+
         public string Instrutor
         {
             get { return instrutor; }
             set { instrutor = value; }
         }
 
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("Nome do curso: " + Nome);
+            sb.Append("Aulas: \n");
+            foreach (var aula in aulas)
+            {
+                sb.Append(" - " + aula.Titulo +"\n");
 
+            }
+            sb.Append("Instrutor " + instrutor);
+            return sb.ToString();
+        }
     }
 }
