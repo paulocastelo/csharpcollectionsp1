@@ -7,9 +7,9 @@ using SystemCollections;
 
 namespace Aula24ListaSomentLeitura
 {
-    class program
+    class AulaDeListas
     {
-        static void Main(string[] args)
+        static void AulaAnterior()
         {
             
             Console.WriteLine("Início do programa:");
