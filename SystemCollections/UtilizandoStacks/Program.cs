@@ -10,6 +10,10 @@ namespace UtilizandoStacks
     {
         static void Main(string[] args)
         {
+        }
+
+        private static void UtilizandoStack()
+        {
             var navegador = new Navegador();
             navegador.NavegarPara("https://www.google.com");
             navegador.NavegarPara("https://www.caelum.com.br");
