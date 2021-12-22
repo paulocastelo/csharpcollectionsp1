@@ -4,65 +4,55 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UtilizandoStacks
+namespace NamespaceEstudo
 {
     class Program
     {
+        static Queue<string> pedagio = new Queue<string>();
         static void Main(string[] args)
         {
-        }
-
-        private static void UtilizandoStack()
-        {
-            var navegador = new Navegador();
-            navegador.NavegarPara("https://www.google.com");
-            navegador.NavegarPara("https://www.caelum.com.br");
-            navegador.NavegarPara("https://www.alura.com.br");
-            navegador.Anterior();
-            navegador.Anterior();
-            navegador.Anterior();
-            navegador.Proximo();
+            //Entrou: Van
+            Enfileirar("Van");
+            //Entrou: Kombi
+            Enfileirar("Kombi");
+            //Entrou: Guincho
+            Enfileirar("Guincho");
+            //Entrou: Pick-up
+            Enfileirar("Pick-up");
+            Desenfileirar();
+            Desenfileirar();
+            Desenfileirar();
+            Desenfileirar();
 
             Console.ReadLine();
         }
-    }
 
-    internal class Navegador
-    {
-        public string atual = "vazia";
-        private readonly Stack<string> historicoAnterior = new Stack<string>();
-        private readonly Stack<string> historicoProximo = new Stack<string>();
-        public Navegador()
+        private static void Desenfileirar()
         {
-            Console.WriteLine("Página atual: " + atual);
-        }
-
-        internal void Anterior()
-        {
-            if (historicoAnterior.Any())
+            if (pedagio.Any())
             {
-                historicoProximo.Push(atual);
-                atual = historicoAnterior.Pop();
-                Console.WriteLine("Página atual: " + atual);
+                var veiculo = pedagio.Dequeue();
+                Console.WriteLine($"Saiu da fila: {veiculo}.");
+                ImprimirFila();
+                Console.WriteLine();
             }
         }
 
-        internal void NavegarPara(string url)
+        private static void Enfileirar(string veiculo)
         {
-            historicoAnterior.Push(atual);
-            atual = url;
-            Console.WriteLine("Página atual: " + atual);
+            Console.WriteLine($"Entrou na fila: {veiculo}.");
+            pedagio.Enqueue(veiculo);
+            ImprimirFila();
+            Console.WriteLine();
         }
 
-        internal void Proximo()
+        private static void ImprimirFila()
         {
-            if (historicoProximo.Any())
+            Console.WriteLine("FILA: ");
+            foreach (var carro in pedagio)
             {
-                historicoAnterior.Push(atual);
-                atual = historicoProximo.Pop();
-                Console.WriteLine("Página atual: " + atual);
+                Console.WriteLine(carro);
             }
         }
     }
 }
-
