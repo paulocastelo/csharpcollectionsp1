@@ -9,7 +9,7 @@ namespace UtilizandoOsSets
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Final ()
         {
             List<string> frutas = new List<string>
             {
